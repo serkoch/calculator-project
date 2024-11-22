@@ -92,7 +92,7 @@ nums.forEach((num) => {
     if (screen.textContent === 'ERROR!') {
       clearAll();
       return (screen.textContent += num.id);
-    } else if (screen.textContent.length < 8) {
+    } else if (screen.textContent.length < 9) {
       return (screen.textContent += num.id);
     }
   });
