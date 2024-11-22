@@ -32,21 +32,32 @@ body {
   justify-content: space-between;
   align-items: center;
   border-bottom: 40px solid black;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-align: right;
   flex: 0 0 15vh;
 }
 
 .calc-buttons {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  flex: 1 0 40vh;
+  flex-flow: column wrap;
+  justify-content: stretch;
+  align-items: stretch;
+  margin-bottom: 5px;
+  flex: 1 1 40vh;
 }
 
+.calc-buttons > div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: stretch;
+  align-items: stretch;
+  flex: 1 1 0;
+}
 
 button {
-  width: 70px;
-  height: 70px;
+  width: 90%;
+  height: 90%;
   margin: 5px;
   background-color: #e6e6e6;
   border: 2px solid #999;
@@ -54,7 +65,7 @@ button {
   color: #333;
   cursor: pointer;
   box-shadow: 0 6px #999, 0 3px 6px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
@@ -66,8 +77,8 @@ button:hover {
 button:active {
   background-color: #cfcfcf;
   transform: translateY(6px);
-  box-shadow: 0 2px #666, 0 1px 3px rgba(0, 0, 0, 0.2); 
-  transition: transform 0.05s ease-in, box-shadow 0.05s ease-in; 
+  box-shadow: 0 2px #666, 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.05s ease-in, box-shadow 0.05s ease-in;
 }
 
 button:focus-visible:not(:active) {
@@ -92,18 +103,44 @@ button:focus-visible:not(:active) {
 button.equals {
   background-color: #ffa500;
   color: #fff;
-  border-color: #cc8400;
+  border-color: #966100;
+}
+
+button.equals:hover {
+  background-color: #e49400;
 }
 
 button.equals:active {
-  background-color: #e69500;
+  background-color: #ca8300;
 }
 
+button.operator {
+  background-color: #1b7aff;
+  color: #ffffff;
+  border-color: #144b99;
+}
 
+button.operator:hover {
+  background-color: #1a5fc0;
+}
+
+button.operator:active {
+  background-color: #144b99;
+}
 
 .del {
-  line-height: 2.1;
+  line-height: 1.15;
 }
-.clear,.allClear {
-  background-color: salmon;
+.top-row button {
+  background-color: rgb(255, 128, 114);
+  color: #000;
+  border-color: rgb(169, 85, 75);
+}
+
+.top-row button:hover {
+  background-color: rgb(224, 112, 99);
+}
+
+.top-row button:active {
+  background-color: rgb(196, 97, 86);
 }
