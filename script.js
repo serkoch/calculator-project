@@ -1,20 +1,20 @@
 function add(x, y) {
-  return x += y;
+  return (x += y);
 }
 
 function subtract(x, y) {
-  return x -= y;
+  return (x -= y);
 }
 
 function multiply(x, y) {
-  return x *= y;
+  return (x *= y);
 }
 
 function divide(x, y) {
   if (y === 0) {
     return 'ERROR!';
   }
-  return x /= y;
+  return (x /= y);
 }
 
 function calculate(op, x, y) {
@@ -51,20 +51,27 @@ nums.forEach((num) => {
     if (screen.textContent.length < 8) {
       return (screen.textContent += num.id);
     }
-    });
+  });
 });
 
-function getStoredOperand(num){
-  return storedOperand = Number(num);
+function getStoredOperand(num) {
+  return (storedOperand = Number(num));
 }
 
 function getCurrentOperand(num) {
-  return currentOperand = Number(num);
+  return (currentOperand = Number(num));
+}
+
+function clearAll() {
+  storedOperand = null;
+  currentOperand = null;
+  screen.textContent = '';
+  opScreen.textContent = '';
 }
 
 function calculation(operator) {
   switch (operator) {
-    case 'add': 
+    case 'add':
       storedOperand = calculate(add, storedOperand, currentOperand);
       screen.textContent = storedOperand;
       break;
@@ -83,15 +90,13 @@ function calculation(operator) {
   }
 }
 
-equals.addEventListener('click', function() {
+equals.addEventListener('click', function () {
   if (storedOperand !== null) {
     currentOperand = getCurrentOperand(screen.textContent);
     calculation(storedOperator);
     opScreen.textContent = equals.textContent;
-  } 
-})
-
-
+  }
+});
 
 operators.forEach((operator) => {
   operator.addEventListener('click', function () {
@@ -115,22 +120,29 @@ decimal.addEventListener('click', function () {
 });
 
 sign.addEventListener('click', function () {
-  return (screen.textContent = Number(screen.textContent) * -1);
+  if (screen.textContent.indexOf('-') === -1) {
+    return (screen.textContent = '-' + screen.textContent);
+  } else {
+    return (screen.textContent = screen.textContent.substring(1));
+  }
 });
 
 del.addEventListener('click', function () {
-  if (screen.textContent.length) {
+  if (screen.textContent === 'ERROR!') {
+    clearAll();
+  } else if (screen.textContent.length) {
     return (screen.textContent = screen.textContent.slice(0, -1));
   }
 });
 
 clear.addEventListener('click', function () {
-  return (screen.textContent = '');
+  if (screen.textContent === 'ERROR!') {
+    clearAll();
+  } else {
+    return (screen.textContent = '');
+  }
 });
 
-ac.addEventListener('click', function() {
-  storedOperand = null;
-  currentOperand = null;
-  screen.textContent = '';
-  opScreen.textContent = '';
-})
+ac.addEventListener('click', function () {
+  clearAll();
+});
