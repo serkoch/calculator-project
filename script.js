@@ -1,28 +1,27 @@
 function add(x, y) {
-  return (x += y);
+  return x + y;
 }
 
 function subtract(x, y) {
-  return (x -= y);
+  return x - y;
 }
 
 function multiply(x, y) {
-  return (x *= y);
+  return x * y;
 }
 
 function divide(x, y) {
-  if (y === 0) {
-    return 'ERROR!';
-  } else {
-    return (x /= y);
-  }
+  return y === 0 ? 'ERROR!' : x / y;
 }
 
 function calculate(op, x, y) {
-  if (op(x, y) === 'ERROR!') {
+  let result = op(Number(x), Number(y));
+  if (result === 'ERROR!') {
+    return 'ERROR!';
+  } else if (result > 999999999999) {
     return 'ERROR!';
   } else {
-    return Math.floor(op(Number(x), Number(y)) * 1000) / 1000;
+    return Math.floor(result * 1000) / 1000;
   }
 }
 
@@ -35,23 +34,11 @@ const del = document.querySelector('.del');
 const clear = document.querySelector('.clear');
 const ac = document.querySelector('.allClear');
 const operators = document.querySelectorAll('.operator');
-const addition = document.querySelector('#add');
-const subtraction = document.querySelector('#subtract');
-const multiplication = document.querySelector('#multiply');
-const division = document.querySelector('#divide');
 const equals = document.querySelector('#equals');
 
 let storedOperand = null;
 let currentOperand = null;
 let storedOperator = null;
-
-function getStoredOperand(num) {
-  return (storedOperand = Number(num));
-}
-
-function getCurrentOperand(num) {
-  return (currentOperand = Number(num));
-}
 
 function clearAll() {
   storedOperand = null;
@@ -61,30 +48,28 @@ function clearAll() {
   opScreen.textContent = null;
 }
 
+function emptyScreen() {
+  currentOperand = null;
+  storedOperator = null;
+}
+
 function calculation(operator) {
-  currentOperand = getCurrentOperand(screen.textContent);
+  currentOperand = screen.textContent;
   switch (operator) {
     case 'add':
       storedOperand = calculate(add, storedOperand, currentOperand);
-      currentOperand = null;
-      storedOperator = null;
       break;
     case 'subtract':
       storedOperand = calculate(subtract, storedOperand, currentOperand);
-      currentOperand = null;
-      storedOperator = null;
       break;
     case 'multiply':
       storedOperand = calculate(multiply, storedOperand, currentOperand);
-      currentOperand = null;
-      storedOperator = null;
       break;
     case 'divide':
       storedOperand = calculate(divide, storedOperand, currentOperand);
-      currentOperand = null;
-      storedOperator = null;
       break;
   }
+  emptyScreen();
 }
 
 nums.forEach((num) => {
@@ -107,7 +92,7 @@ operators.forEach((operator) => {
       storedOperator = operator.id;
       opScreen.textContent = operator.textContent;
     } else if (storedOperand === null) {
-      storedOperand = getStoredOperand(screen.textContent);
+      storedOperand = screen.textContent;
       storedOperator = operator.id;
       screen.textContent = '';
       opScreen.textContent = operator.textContent;
@@ -141,6 +126,8 @@ decimal.addEventListener('click', function () {
 sign.addEventListener('click', function () {
   if (screen.textContent === 'ERROR!') {
     clearAll();
+  } else if (opScreen.textContent === equals.textContent) {
+    return;
   } else if (screen.textContent.indexOf('-') === -1) {
     return (screen.textContent = '-' + screen.textContent);
   } else {
@@ -151,14 +138,16 @@ sign.addEventListener('click', function () {
 del.addEventListener('click', function () {
   if (screen.textContent === 'ERROR!') {
     clearAll();
-  } else if (screen.textContent.length) {
-    return (screen.textContent = screen.textContent.slice(0, -1));
-  }
+  } else if (opScreen.textContent === equals.textContent) {
+    return;
+  } else return (screen.textContent = screen.textContent.slice(0, -1));
 });
 
 clear.addEventListener('click', function () {
   if (screen.textContent === 'ERROR!') {
     clearAll();
+  } else if (opScreen.textContent === equals.textContent) {
+    return;
   } else {
     return (screen.textContent = '');
   }
