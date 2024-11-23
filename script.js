@@ -18,7 +18,7 @@ function calculate(op, x, y) {
   let result = op(Number(x), Number(y));
   if (result === 'ERROR!') {
     return 'ERROR!';
-  } else if (result > 999999999999) {
+  } else if (result > 9999999999) {
     return 'ERROR!';
   } else {
     return Math.floor(result * 1000) / 1000;
