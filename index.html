@@ -1,53 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator Project</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rationale&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div class="calc-body">
-    <div class="calc-screen">
-      <p class="screen-operator"></p>
-      <p class="screen-operand"></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Project</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rationale&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <p>Calculator</p>
+    <div class="calc-body">
+      <div class="calc-screen">
+        <p class="screen-operator"></p>
+        <p class="screen-operand"></p>
+      </div>
+      <div class="calc-buttons">
+        <div class="top-row">
+          <button class="allClear" data-key="Escape">AC</button>
+          <button class="clear" data-key=" ">C</button>
+          <button class="del" data-key="Backspace">⌫</button>
+          <button class="sign" id="plus-minus" data-key="`">±</button>
+        </div>
+        <div>
+          <button class="num" id="7" data-key="7">7</button>
+          <button class="num" id="8" data-key="8">8</button>
+          <button class="num" id="9" data-key="9">9</button>
+          <button class="operator" id="multiply" data-key="*">×</button>
+        </div>
+        <div>
+          <button class="num" id="4" data-key="4">4</button>
+          <button class="num" id="5" data-key="5">5</button>
+          <button class="num" id="6" data-key="6">6</button>
+          <button class="operator" id="divide" data-key="/">÷</button>
+        </div>
+        <div>
+          <button class="num" id="1" data-key="1">1</button>
+          <button class="num" id="2" data-key="2">2</button>
+          <button class="num" id="3" data-key="3">3</button>
+          <button class="operator" id="subtract" data-key="-">-</button>
+        </div>
+        <div>
+          <button class="num" id="0" data-key="0">0</button>
+          <button class="decimal" id="." data-key=".">.</button>
+          <button class="equals" id="equals" data-key="Enter">=</button>
+          <button class="operator" id="add" data-key="+">+</button>
+        </div>
+      </div>
     </div>
-    <div class="calc-buttons">
-      <div class="top-row">        
-        <button class="allClear" data-key="Escape">AC</button>
-        <button class="clear" data-key=" ">C</button>
-        <button class="del" data-key="Backspace">⌫</button>
-        <button class="sign" id="plus-minus" data-key="`">+/-</button>
-      </div>
-      <div>
-        <button class="num" id="7" data-key="7">7</button>
-        <button class="num" id="8" data-key="8">8</button>
-        <button class="num" id="9" data-key="9">9</button>
-        <button class="operator" id="multiply" data-key="*">×</button>
-      </div>
-      <div>
-        <button class="num" id="4" data-key="4">4</button>
-        <button class="num" id="5" data-key="5">5</button>
-        <button class="num" id="6" data-key="6">6</button>
-        <button class="operator" id="divide" data-key="/">÷</button>
-      </div>
-      <div>
-        <button class="num" id="1" data-key="1">1</button>
-        <button class="num" id="2" data-key="2">2</button>
-        <button class="num" id="3" data-key="3">3</button>
-        <button class="operator" id="subtract" data-key="-">-</button>
-      </div>
-      <div>
-        <button class="num" id="0" data-key="0">0</button>
-        <button class="decimal" id="." data-key=".">.</button>
-        <button class="equals" id="equals" data-key="Enter">=</button>
-        <button class="operator" id="add" data-key="+">+</button>
-      </div>
-    </div>
-  </div>
-</body>
-<script src="script.js" defer></script>
+
+    <footer>
+      <a
+        href="https://github.com/serkoch"
+        title="GitHub"
+        target="_blank"
+        rel="noreferrer"
+        >Created by SerKoch |</a
+      >
+      <a
+        href="https://github.com/serkoch/calculator-project"
+        title="GitHub"
+        target="_blank"
+        rel="noreferrer"
+        >GitHub Repo</a
+      >
+    </footer>
+  </body>
+  <script src="script.js" defer></script>
 </html>
