@@ -19,6 +19,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #343a40;
+}
+
+body > p {
+position: absolute;
+top: 0px;
+left: 0;
+text-align: center;
+width: 100%;
+margin-top: 10px;
+color: darkgrey;
+font-size: 5vh;
 }
 
 .calc-body {
@@ -28,9 +40,9 @@ body {
   align-items: stretch;
   flex: 0 0 45vh;
   height: 75vh;
-  border: 20px solid black;
+  border: 20px solid #dad7cd;
   border-radius: 20px;
-  background-color: #dedede;
+  background-color: #dad7cd;
 }
 
 .calc-screen {
@@ -38,7 +50,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 40px solid black;
+  border-bottom: 20px solid #dad7cd;
+  border-top: 20px solid #dad7cd;
   word-wrap: break-word;
   word-break: break-all;
   text-align: right;
@@ -166,4 +179,25 @@ button.operator:active {
 
 .top-row button:active {
   background-color: rgb(196, 97, 86);
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  height: fit-content;
+  text-align: center;
+  font-size: 2vh;
+  background: transparent;
+  bottom: 0px;
+  left: 0;
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 2vh;
+}
+
+a:visited, a:link, a:hover, a:active {
+  color: darkgrey;
 }
