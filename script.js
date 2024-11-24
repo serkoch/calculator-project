@@ -24,7 +24,7 @@ function calculate(op, x, y) {
     return Math.floor(result * 1000) / 1000;
   }
 }
-
+const numbers = document.querySelectorAll(['data-num']);
 const screen = document.querySelector('.screen-operand');
 const opScreen = document.querySelector('.screen-operator');
 const nums = document.querySelectorAll('.num');
@@ -156,3 +156,26 @@ clear.addEventListener('click', function () {
 ac.addEventListener('click', function () {
   clearAll();
 });
+
+// Keyboard support
+
+function buttonPress(key) {
+  const button = document.querySelector(`button[data-key='${key}']`);
+  if (button) {
+    button.click();
+    buttonAction(button);
+  }
+}
+
+function buttonAction(button) {
+  button.classList.add('active');
+  setTimeout(() => {
+    button.classList.remove('active');
+  }, 100);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.repeat) return
+  let key = e.key;
+  buttonPress(key);
+})
