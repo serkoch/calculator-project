@@ -95,6 +95,13 @@ button:active {
   transition: transform 0.05s ease-in, box-shadow 0.05s ease-in;
 }
 
+button.active {
+  background-color: #cfcfcf;
+  transform: translateY(6px);
+  box-shadow: 0 2px #666, 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.05s ease-in, box-shadow 0.05s ease-in;
+}
+
 button:focus-visible:not(:active) {
   animation: bounce-back 0.3s ease-out;
 }
