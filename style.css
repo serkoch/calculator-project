@@ -30,10 +30,11 @@ body {
   height: 75vh;
   border: 20px solid black;
   border-radius: 20px;
+  background-color: #dedede;
 }
 
 .calc-screen {
-  background-color: grey;
+  background-color: #C1C497;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,6 +51,7 @@ body {
   font-weight: 100;
   font-size: 60px;
   margin-right: 10px;
+  color: #5e5f3b;
 }
 
 .calc-buttons {
