@@ -28,7 +28,7 @@ top: 0px;
 left: 0;
 text-align: center;
 width: 100%;
-margin-top: 10px;
+margin-top: 3vh;
 color: darkgrey;
 font-size: 5vh;
 }
@@ -50,8 +50,8 @@ font-size: 5vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 20px solid #dad7cd;
-  border-top: 20px solid #dad7cd;
+  border-bottom: 30px solid #dad7cd;
+  border-top: 10px solid #dad7cd;
   word-wrap: break-word;
   word-break: break-all;
   text-align: right;
@@ -62,9 +62,10 @@ font-size: 5vh;
   font-family: "Rationale", Arial, Helvetica, sans-serif;
   font-style: italic;
   font-weight: 100;
-  font-size: 60px;
-  margin-right: 10px;
+  font-size: 7vh;
+  margin-right: 15px;
   color: #5e5f3b;
+  letter-spacing: -5px;
 }
 
 .calc-buttons {
@@ -150,6 +151,10 @@ button.equals:active {
   background-color: #ca8300;
 }
 
+button.equals.active {
+  background-color: #ca8300;
+}
+
 button.operator {
   background-color: #1b7aff;
   color: #ffffff;
@@ -161,6 +166,10 @@ button.operator:hover {
 }
 
 button.operator:active {
+  background-color: #144b99;
+}
+
+button.operator.active {
   background-color: #144b99;
 }
 
@@ -178,6 +187,10 @@ button.operator:active {
 }
 
 .top-row button:active {
+  background-color: rgb(196, 97, 86);
+}
+
+.top-row button.active {
   background-color: rgb(196, 97, 86);
 }
 
